@@ -10,7 +10,16 @@ import java.awt.Color;
 public class Editor2 {
 
 	public static void main (String[] args){
-		//// Replace this comment with your code.
-		//// This function is similar to the main function of Editor1.java			
+		String fileName = args[0];
+		int height = Integer.parseInt(args[1]);
+		int width = Integer.parseInt(args[2]);
+		Color[][] sourceImage = Runigram.read(fileName);	
+		Color[][] outputImage = null;
+		outputImage = Runigram.scaled(sourceImage, height, width);
+		Runigram.setCanvas(sourceImage);
+		Runigram.display(sourceImage);
+		StdDraw.pause(3000);
+		Runigram.setCanvas(outputImage);
+		Runigram.display(outputImage);		
 	}
 }
